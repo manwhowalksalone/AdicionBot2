@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-print('Rrr')
-
 import requests  
 import datetime
 
@@ -38,29 +36,30 @@ greet_bot = BotHandler('1295661558:AAHpKhyN7o5Pw2XM5uhaPKzgKqZXd_QzhuI')
 greetings = ('здравствуй', 'привет', 'ку', 'здорово')  
 now = datetime.datetime.now()
 
-print(now)
-
 def main():  
     new_offset = None
     today = now.day
     hour = now.hour
 	
-    greet_bot.get_updates(new_offset)
+    while True:
+        greet_bot.get_updates(new_offset)
 	
-    last_update = greet_bot.get_last_update()
+        last_update = greet_bot.get_last_update()
 	
-    last_update_id = last_update['update_id']
-    last_chat_text = last_update['message']['text']
-    last_chat_id = last_update['message']['chat']['id']
+        last_update_id = last_update['update_id']
+        last_chat_text = last_update['message']['text']
+        last_chat_id = last_update['message']['chat']['id']
 
-    last_chat_name = last_update['message']['chat']['first_name']
+        last_chat_name = last_update['message']['chat']['first_name']
 	
-    #greet_bot.send_message(last_chat_id, 'Добрый вечер, {}'.format(last_chat_text))
+        #greet_bot.send_message(last_chat_id, 'Добрый вечер, {}'.format(last_chat_text))
 
-    lst = last_chat_text.split('+')
-    print(int(lst[0]) + int(lst[1]))
+        lst = last_chat_text.split('+')
+        print(int(lst[0]) + int(lst[1]))
 
-    #greet_bot.send_message(last_chat_id, '{}'.format(lst[0]))
+        greet_bot.send_message(last_chat_id, 'Результат сложения равен {}'.format(int(lst[0]) + int(lst[1])))
+
+        new_offset = last_update_id + 1
 
 if __name__ == '__main__':  
     try:
