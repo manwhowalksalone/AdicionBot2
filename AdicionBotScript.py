@@ -55,7 +55,7 @@ def main():
         #greet_bot.send_message(last_chat_id, 'Добрый вечер, {}'.format(last_chat_text))
 
         lst = last_chat_text.split('+')
-        print(int(lst[0]) + int(lst[1]))
+        #print(int(lst[0]) + int(lst[1]))
 
         greet_bot.send_message(last_chat_id, 'Результат сложения равен {}'.format(int(lst[0]) + int(lst[1])))
 
