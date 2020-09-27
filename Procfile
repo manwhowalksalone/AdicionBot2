@@ -1,1 +1,1 @@
-web: AdicionBotScript.py
+web: python AdicionBotScript.py
