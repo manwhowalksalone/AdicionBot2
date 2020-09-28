@@ -1,1 +1,1 @@
-web: python AdicionBotScript.py
+worker: python AdicionBotScript.py
